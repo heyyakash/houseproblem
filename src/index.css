@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +8,7 @@
     @apply m-0 p-0 box-border;
   }
   body{
-    @apply w-full;
+    @apply w-full font-PT-Sans;
   }
 }
 
@@ -19,6 +20,12 @@
     @apply border-[1.75px] border-gray-300;
   }
   .checkbox{
-    @apply w-full h-full grid place-items-center rounded-md hover:border-4 trans border;
+    @apply w-full h-full grid place-items-center rounded-md cursor-pointer border hover:border-purple-300 hover:text-purple-600 trans ;
+  }
+  .input-primary{
+    @apply border rounded-md p-2
+  }
+  .label-input-primary{
+    @apply  font-semibold;
   }
 }
