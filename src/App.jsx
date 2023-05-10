@@ -3,8 +3,8 @@ import Main from './components/Main'
 import Sidebar from './components/Sidebar'
 
 function App() {
-  const [vertical, setVertical] = useState(10)
-  const [horizontal, setHorizontal] = useState(10)
+  const [vertical, setVertical] = useState(8)
+  const [horizontal, setHorizontal] = useState(8)
   const dict = {
     Restaurant: [],
     Hospital: [],

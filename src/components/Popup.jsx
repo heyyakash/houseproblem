@@ -1,21 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import close from "../assets/close.svg"
 import { AiFillHome } from 'react-icons/ai'
 import { BiDumbbell } from 'react-icons/bi'
 import { TbBuildingHospital } from 'react-icons/tb'
 import { ImSpoonKnife } from 'react-icons/im'
 
-const Popup = ({show,setShow, type,setType,l,b,dict}) => {
-    const [mode,setMode] = useState(null)
-    const [label,setLabel] = useState("")
+const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
+    const [mode, setMode] = useState(null)
+    const [disabled, setDisabled] = useState(mode==="House"?true:false)
+    const [label, setLabel] = useState("")
 
+    useEffect(()=>{
+        setDisabled(mode==="House")
+    },[mode])
 
     const handleSubmit = () => {
-        const data = {label,l,b}   
+        const data = { label, l, b }
         dict[mode].push(data)
-        type.add({...data,mode})
+        type.add({ ...data, mode })
         setShow(false)
         console.log(dict)
+    }
+
+    const reset = () => {
+        dict.House = dict.House.filter(obj => obj.l !== l || obj.b !== b)
+        dict.Hospital = dict.Hospital.filter(obj => obj.l !== l || obj.b !== b)
+        dict.Restaurant = dict.Restaurant.filter(obj => obj.l !== l || obj.b !== b)
+        dict.Gym = dict.Gym.filter(obj => obj.l !== l || obj.b !== b)
+        console.log(dict)
+        setType(new Set())
+        setMode(null)
+        setDisabled(false)
     }
 
     return (
@@ -30,23 +45,23 @@ const Popup = ({show,setShow, type,setType,l,b,dict}) => {
                 </div>
                 <div className='grid  grid-cols-4 gap-2 w-[400px] min-h-[70px] text-xl px-3 pb-2'>
 
-                    <button onClick={()=>setMode("House")} className={`checkbox`}><AiFillHome /></button>
-                    <button onClick={()=>setMode("Hospital")} className='checkbox'><TbBuildingHospital /></button>
-                    <button onClick={()=>setMode("Gym")} className='checkbox'><BiDumbbell /></button>
-                    <button onClick={()=>setMode("Restaurant")} className='checkbox'><ImSpoonKnife /></button>
+                    <button onClick={() => setMode("House")} className={`checkbox`}><AiFillHome /></button>
+                    <button disabled = {disabled} onClick={() => setMode("Hospital")} className='checkbox disabled:opacity-50 disabled:pointer-events-none'><TbBuildingHospital /></button>
+                    <button onClick={() => setMode("Gym")} className='checkbox'><BiDumbbell /></button>
+                    <button onClick={() => setMode("Restaurant")} className='checkbox'><ImSpoonKnife /></button>
 
                 </div>
-                    {mode?(
-                        <div className='px-3 flex flex-col gap-2'>
+                {mode ? (
+                    <div className='px-3 flex flex-col gap-2'>
                         <label htmlFor="input" className='label-input-primary'>{mode} name</label>
-                        <input type="text" value = {label} onChange = {(e)=>setLabel(e.target.value)} className='input-primary' />
-                        </div>
-                    ):(
-                        <></>
-                    )}
+                        <input type="text" value={label} onChange={(e) => setLabel(e.target.value)} className='input-primary' />
+                    </div>
+                ) : (
+                    <></>
+                )}
                 <div className='flex gap-2 p-3 w-full items-center justify-center'>
-                    <button onClick={() => handleSubmit()} className='bg-blue-500 grow py-3 text-white font-bold text-lg rounded-md'>Add</button>
-                    <button onClick={() => setShow(false)} className='bg-gray-200 grow py-3 text-white font-bold text-lg rounded-md'>Cancel</button>
+                    <button onClick={() => handleSubmit()} className='bg-blue-500 grow py-3 text-white font-bold text-lg rounded-md hover:text-blue-400 trans hover:bg-white'>Add</button>
+                    <button onClick={() => reset()} className='bg-red-400 grow py-3 text-white font-bold text-lg rounded-md hover:text-red-400 trans hover:bg-white'>Reset</button>
                 </div>
             </div>
 
