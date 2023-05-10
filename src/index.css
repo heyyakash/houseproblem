@@ -20,7 +20,7 @@
     @apply border-[1.75px] border-gray-300;
   }
   .checkbox{
-    @apply w-full h-full grid place-items-center rounded-md cursor-pointer border hover:border-purple-300 hover:text-purple-600 trans ;
+    @apply w-full h-full disabled:opacity-50 disabled:pointer-events-none grid place-items-center rounded-md cursor-pointer border hover:border-purple-300 hover:text-purple-600 trans ;
   }
   .input-primary{
     @apply border rounded-md p-2

@@ -45,10 +45,10 @@ const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
                 </div>
                 <div className='grid  grid-cols-4 gap-2 w-[400px] min-h-[70px] text-xl px-3 pb-2'>
 
-                    <button onClick={() => setMode("House")} className={`checkbox`}><AiFillHome /></button>
-                    <button disabled = {disabled} onClick={() => setMode("Hospital")} className='checkbox disabled:opacity-50 disabled:pointer-events-none'><TbBuildingHospital /></button>
-                    <button onClick={() => setMode("Gym")} className='checkbox'><BiDumbbell /></button>
-                    <button onClick={() => setMode("Restaurant")} className='checkbox'><ImSpoonKnife /></button>
+                    <button disabled = {mode==="Hospital" || mode==="Gym" || mode==="Restaurant"} onClick={() => setMode("House")} className={`checkbox`}><AiFillHome /></button>
+                    <button disabled = {disabled} onClick={() => setMode("Hospital")} className='checkbox disabled:pointer-events-none'><TbBuildingHospital /></button>
+                    <button disabled = {disabled} onClick={() => setMode("Gym")} className='checkbox'><BiDumbbell /></button>
+                    <button disabled = {disabled} onClick={() => setMode("Restaurant")} className='checkbox'><ImSpoonKnife /></button>
 
                 </div>
                 {mode ? (
