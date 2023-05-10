@@ -35,7 +35,7 @@ const Box = ({ l, b, dict }) => {
 
 
 
-            <div className={` ${color ? color : "bg-white"} border-primary relative z-0 overflow-hidden p-2 flex-wrap  hover:z-[100]   cursor-pointer trans hover:scale-110  text-xl font-bold flex items-center justify-center ${data ? "" : "text-sm font-normal"}`}>
+            <div className={` ${color ? color : "bg-white"} border-primary relative z-0 overflow-hidden p-2 ${type.size===3?" flex-wrap":""}  hover:z-[100]   cursor-pointer trans hover:scale-110  text-xl font-bold flex items-center justify-center ${data ? "" : "text-sm font-normal"}`}>
                 {type.size === 0 ? (<p className='text-xs'>Plot</p>) : (<>{
                     [...type].map((x) => {
                         return (
