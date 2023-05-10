@@ -7,11 +7,8 @@ import { ImSpoonKnife } from 'react-icons/im'
 
 const Popup = ({show,setShow, type,setType,l,b,dict}) => {
     const [mode,setMode] = useState(null)
-    const [house, setHouse] = useState("")
     const [label,setLabel] = useState("")
-    const [hospital, setHospital] = useState("")
-    const [restaurant, setRestaurant] = useState("")
-    const [gym, setGym] = useState("")
+
 
     const handleSubmit = () => {
         const data = {label,l,b}   

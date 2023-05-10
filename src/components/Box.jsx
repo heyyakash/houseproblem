@@ -17,7 +17,6 @@ const Box = ({ l, b, dict }) => {
     }
 
 
-
     return (
         <>
             <Popup type = {type} setType = {setType} l={l} b={b} dict = {dict}  show = {show} setShow = {setShow} />
@@ -25,7 +24,7 @@ const Box = ({ l, b, dict }) => {
 
 
 
-            <div className={` ${color ? color : "bg-white"} border-primary relative z-0 overflow-hidden  hover:z-[100] cursor-pointer trans hover:scale-110  text-xl font-bold flex items-center justify-center ${data ? "" : "text-sm font-normal"}`}>
+            <div className={` ${color ? color : "bg-white"} border-primary relative z-0 overflow-hidden  hover:z-[100] cursor-pointer trans hover:scale-90  text-xl font-bold flex items-center justify-center ${data ? "" : "text-sm font-normal"}`}>
                 {type.size === 0 ? (<>Plot</>) : (<>{
                     [...type].map((x) => <div className={`grow ${colorMap[x.mode]} flex items-center justify-center h-full`}>{x.label}</div>)
                 }</>)}
