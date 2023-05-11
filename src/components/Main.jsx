@@ -15,7 +15,7 @@ const Main = ({ l, b,dict }) => {
 
     return (
         <>
-            <div className={`flex flex-col bg-white dark:bg-black/90 dark:border-l dark:border-white/20 text-white w-[100vw] relative h-[100vh]  border-l-2 `}>
+            <div className={`flex flex-col bg-white dark:bg-black/90 dark:border-l dark:border-white/20 dark:text-white w-[100vw] relative h-[100vh]  border-l-2 `}>
                 <div className='p-5 flex items-center gap-2 border-b dark:border-none border-primary'>
                     <img src={rsvg} alt="" />
                     <h2 className='text-xl font-semibold'>Layout</h2>
