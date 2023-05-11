@@ -9,7 +9,6 @@ import Popup from './Popup'
 const Box = ({ l, b, dict }) => {
     const [type, setType] = useState(new Set())
     const [data, setData] = useState(null)
-    // const [color, setColor] = useState(null)
     const [show, setShow] = useState(false)
 
 

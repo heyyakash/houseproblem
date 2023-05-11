@@ -18,7 +18,6 @@ const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
         dict[mode].push(data)
         type.add({ ...data, mode })
         setShow(false)
-        console.log(dict)
     }
 
     const reset = () => {
@@ -26,7 +25,6 @@ const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
         dict.Hospital = dict.Hospital.filter(obj => !(obj.l === l && obj.b === b))
         dict.Restaurant = dict.Restaurant.filter(obj => !(obj.l === l && obj.b === b))
         dict.Gym = dict.Gym.filter(obj => !(obj.l === l && obj.b === b))
-        console.log(dict)
         setType(new Set())
         setMode(null)
         setDisabled(false)
@@ -59,7 +57,7 @@ const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
                     <></>
                 )}
                 <div className='flex gap-2 p-3 w-full items-center justify-center'>
-                    <button disabled = {type.size>2 || mode===null} onClick={() => handleSubmit()} className='bg-blue-500 grow py-3 disabled:pointer-events-none disabled:opacity-50 text-white font-bold text-lg rounded-md hover:text-blue-400 trans hover:bg-white'>Add</button>
+                    <button disabled = {type.size>2 || mode===null || label.length===0} onClick={() => handleSubmit()} className='bg-blue-500 grow py-3 disabled:pointer-events-none disabled:opacity-50 text-white font-bold text-lg rounded-md hover:text-blue-400 trans hover:bg-white'>Add</button>
                     <button onClick={() => reset()} className='bg-red-400 grow py-3 text-white font-bold text-lg rounded-md hover:text-red-400 trans hover:bg-white'>Reset</button>
                 </div>
             </div>
