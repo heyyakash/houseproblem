@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import close from "../assets/close.svg"
-// import { IoClose } from "react-icons/io5"
 import { AiFillHome, AiOutlineClose } from 'react-icons/ai'
 import { BiDumbbell } from 'react-icons/bi'
 import { TbBuildingHospital } from 'react-icons/tb'

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Box from './Box'
-import rsvg from '../assets/layout.svg'
+import {RiLayout6Fill} from 'react-icons/ri'
 
 const Main = ({ l, b, dict }) => {
     const [array, setArray] = useState([])
@@ -21,7 +21,7 @@ const Main = ({ l, b, dict }) => {
         <>
             <div className={`flex flex-col bg-white dark:bg-black/90 dark:border-l dark:border-white/20 dark:text-white w-[100vw] relative h-[100vh]  border-l-2 `}>
                 <div className='p-5 flex items-center gap-2 border-b dark:border-none border-primary'>
-                    <img src={rsvg} alt="" />
+                    <RiLayout6Fill className='text-purple-500 text-4xl' />
                     <h2 className='text-xl font-semibold'>Layout</h2>
                 </div>
                 <div id="grid" className='w-full grid h-[calc(100vh-3rem)] '>
