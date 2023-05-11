@@ -3,7 +3,7 @@ import { AiFillHome } from 'react-icons/ai'
 import { BiErrorCircle } from 'react-icons/bi'
 import {CgDarkMode} from "react-icons/cg"
 
-const Sidebar = ({ vertical, horizontal, dict }) => {
+const Sidebar = ({ vertical, horizontal, dict,setVertical,setHorizontal }) => {
     const [result, setResult] = useState([])
     const [error, setError] = useState(null)
 
@@ -50,16 +50,19 @@ const Sidebar = ({ vertical, horizontal, dict }) => {
     }
 
     return (
-        <div className='h-full w-[400px] hidden lg:flex bg-white dark:bg-black/90 dark:text-white  flex-col'>
-            <div className='w-full font-bold p-5 py-7 flex items-center justify-between'>
+        <div className='h-full w-[400px] flex bg-white dark:bg-black/90 dark:text-white  flex-col'>
+            <div className='w-full font-bold  dark:border-none px-5 py-6  flex items-center justify-between'>
                 <h2 className='text-2xl '>House Selection</h2>
                 <div onClick={()=>toggleDarkMode()} className='rounded-full h-8 w-8 cursor-pointer trans hover:bg-white hover:text-black border grid place-items-center text-xl'>
                     <CgDarkMode />
                 </div>
             </div>
-            <div className='flex flex-col gap-2 px-5'>
-                <input type="number" value={vertical} onChange={(e) => setVertical(e.target.value)} placeholder='veritical' className='input-primary' />
-                <input type="number" value={horizontal} onChange={(e) => setHorizontal(e.target.value)} placeholder='Horizontal' className='input-primary' />
+            <div className='flex flex-col gap-3 p-5 w-[90%] self-center rounded-lg dark:bg-white/20 bg-black/10'>
+                <h3 className='text-xl font-bold'>Set Dimensions</h3>
+                <label htmlFor="v mt-5">Veritcal</label>
+                <input id = "v" type="number" min={1} value={vertical} onChange={(e) => setVertical(e.target.value)} placeholder='veritical' className='input-primary' />
+                <label htmlFor="h">Horizontal</label>
+                <input id = "h" type="number" min={1} value={horizontal} onChange={(e) => setHorizontal(e.target.value)} placeholder='Horizontal' className='input-primary' />
             </div>
             <div className='p-5'>
                 <button onClick={() => getResult()} className='bg-purple-500 disabled:bg-opacity-50 text-white trans p-2 hover:bg-white hover:text-purple-500   font-semibold rounded-lg  w-full'> Suggest House</button>

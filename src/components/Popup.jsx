@@ -44,7 +44,7 @@ const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
                     </div>
 
                 </div>
-                <div className='grid  grid-cols-4 gap-2 w-[400px] min-h-[70px] text-xl px-3 pb-2'>
+                <div className='grid  grid-cols-4 gap-2 w-[400px] min-h-[70px] text-xl px-3 my-4'>
 
                     <button disabled={mode === "Hospital" || mode === "Gym" || mode === "Restaurant"} onClick={() => setMode("House")} className={`checkbox ${mode === "House" ? "dark:bg-white bg-purple-100 dark:text-purple-500" : ""}`}><AiFillHome /></button>
                     <button disabled={disabled} onClick={() => setMode("Hospital")} className={`checkbox ${mode === "Hospital" ? "dark:bg-white bg-purple-100 dark:text-purple-500" : ""}`}><TbBuildingHospital /></button>
@@ -61,7 +61,7 @@ const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
                     <></>
                 )}
                 <div className='flex gap-2 p-3 w-full items-center justify-center'>
-                    <button onClick={() => handleSubmit()} className='bg-blue-500 grow py-3 text-white font-bold text-lg rounded-md hover:text-blue-400 trans hover:bg-white'>Add</button>
+                    <button disabled = {type.size>2 || mode===null} onClick={() => handleSubmit()} className='bg-blue-500 grow py-3 disabled:pointer-events-none disabled:opacity-50 text-white font-bold text-lg rounded-md hover:text-blue-400 trans hover:bg-white'>Add</button>
                     <button onClick={() => reset()} className='bg-red-400 grow py-3 text-white font-bold text-lg rounded-md hover:text-red-400 trans hover:bg-white'>Reset</button>
                 </div>
             </div>
