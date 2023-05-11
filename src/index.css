@@ -8,8 +8,27 @@
     @apply m-0 p-0 box-border;
   }
   body{
-    @apply w-full font-PT-Sans;
+    @apply w-full font-PT-Sans h-screen overflow-hidden;
   }
+  /* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 }
 
 @layer components{
