@@ -22,10 +22,10 @@ const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
     }
 
     const reset = () => {
-        dict.House = dict.House.filter(obj => obj.l !== l || obj.b !== b)
-        dict.Hospital = dict.Hospital.filter(obj => obj.l !== l || obj.b !== b)
-        dict.Restaurant = dict.Restaurant.filter(obj => obj.l !== l || obj.b !== b)
-        dict.Gym = dict.Gym.filter(obj => obj.l !== l || obj.b !== b)
+        dict.House = dict.House.filter(obj => !(obj.l === l && obj.b === b))
+        dict.Hospital = dict.Hospital.filter(obj => !(obj.l === l && obj.b === b))
+        dict.Restaurant = dict.Restaurant.filter(obj => !(obj.l === l && obj.b === b))
+        dict.Gym = dict.Gym.filter(obj => !(obj.l === l && obj.b === b))
         console.log(dict)
         setType(new Set())
         setMode(null)
