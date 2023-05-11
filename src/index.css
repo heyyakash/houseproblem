@@ -23,7 +23,7 @@
     @apply w-full h-full disabled:opacity-50 disabled:pointer-events-none grid place-items-center rounded-md cursor-pointer border hover:border-purple-300 hover:text-purple-600 trans ;
   }
   .input-primary{
-    @apply border rounded-md p-2
+    @apply border rounded-md dark:bg-white/10 dark:border-none outline-none p-3;
   }
   .label-input-primary{
     @apply  font-semibold;

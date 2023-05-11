@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import close from "../assets/close.svg"
-import { AiFillHome } from 'react-icons/ai'
+// import { IoClose } from "react-icons/io5"
+import { AiFillHome, AiOutlineClose } from 'react-icons/ai'
 import { BiDumbbell } from 'react-icons/bi'
 import { TbBuildingHospital } from 'react-icons/tb'
 import { ImSpoonKnife } from 'react-icons/im'
 
 const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
     const [mode, setMode] = useState(null)
-    const [disabled, setDisabled] = useState(mode==="House"?true:false)
+    const [disabled, setDisabled] = useState(mode === "House" ? true : false)
     const [label, setLabel] = useState("")
 
-    useEffect(()=>{
-        setDisabled(mode==="House")
-    },[mode])
+    useEffect(() => {
+        setDisabled(mode === "House")
+    }, [mode])
 
     const handleSubmit = () => {
         const data = { label, l, b }
@@ -34,21 +35,21 @@ const Popup = ({ show, setShow, type, setType, l, b, dict }) => {
     }
 
     return (
-        <div className={`absolute w-full h-[100vh] trans ${show ? "top-0" : "-top-[1000%]"} flex justify-center items-center bg-purple-500/10  z-[1000] w-[400px] drop-shadow-xl`}>
-            <div className='flex flex-col rounded-xl bg-white'>
+        <div className={`absolute w-full h-[100vh]  trans ${show ? "top-0" : "-top-[1000%]"} flex justify-center items-center bg-purple-500/10  z-[1000] w-[400px] drop-shadow-xl`}>
+            <div className='flex flex-col rounded-xl dark:bg-black bg-white p-3'>
                 <div className='flex items-center justify-between p-4 w-full'>
                     <h3 className='text-2xl font-semibold'>Select Building</h3>
                     <div onClick={() => setShow(!show)} className='h-7 w-7  group hover:bg-purple-500 rounded-md trans cursor-pointer grid place-items-center'>
-                        <img src={close} alt="close" className='group-hover:brightness-0 group-hover:invert-[1]' />
+                        <AiOutlineClose className='dark:text-white' />
                     </div>
 
                 </div>
                 <div className='grid  grid-cols-4 gap-2 w-[400px] min-h-[70px] text-xl px-3 pb-2'>
 
-                    <button disabled = {mode==="Hospital" || mode==="Gym" || mode==="Restaurant"} onClick={() => setMode("House")} className={`checkbox`}><AiFillHome /></button>
-                    <button disabled = {disabled} onClick={() => setMode("Hospital")} className='checkbox disabled:pointer-events-none'><TbBuildingHospital /></button>
-                    <button disabled = {disabled} onClick={() => setMode("Gym")} className='checkbox'><BiDumbbell /></button>
-                    <button disabled = {disabled} onClick={() => setMode("Restaurant")} className='checkbox'><ImSpoonKnife /></button>
+                    <button disabled={mode === "Hospital" || mode === "Gym" || mode === "Restaurant"} onClick={() => setMode("House")} className={`checkbox ${mode === "House" ? "dark:bg-white bg-purple-100 dark:text-purple-500" : ""}`}><AiFillHome /></button>
+                    <button disabled={disabled} onClick={() => setMode("Hospital")} className={`checkbox ${mode === "Hospital" ? "dark:bg-white bg-purple-100 dark:text-purple-500" : ""}`}><TbBuildingHospital /></button>
+                    <button disabled={disabled} onClick={() => setMode("Gym")} className={`checkbox ${mode === "Gym" ? "dark:bg-white bg-purple-100 dark:text-purple-500" : ""}`}><BiDumbbell /></button>
+                    <button disabled={disabled} onClick={() => setMode("Restaurant")} className={`checkbox ${mode === "Restaurant" ? "dark:bg-white bg-purple-100 dark:text-purple-500" : ""}`}><ImSpoonKnife /></button>
 
                 </div>
                 {mode ? (

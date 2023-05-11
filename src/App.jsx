@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Main from './components/Main'
 import Sidebar from './components/Sidebar'
 
@@ -11,6 +11,10 @@ function App() {
     Gym: [],
     House: []
   }
+  useEffect(()=>{
+    const html = document.querySelector("html")
+    html.classList.add("dark")
+  },[])
   return (
     <div className='flex lg:h-[100vh]'>
       <Sidebar vertical={vertical} horizontal={horizontal} dict={dict} />

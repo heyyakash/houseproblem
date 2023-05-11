@@ -3,7 +3,7 @@ import Box from './Box'
 import rsvg from '../assets/layout.svg'
 
 const Main = ({ l, b,dict }) => {
-  
+
     const arr = []
     const s = Array.from(Array(l).keys(), x => x + 1)
     for (let i = 0; i < b; i++) {
@@ -15,8 +15,8 @@ const Main = ({ l, b,dict }) => {
 
     return (
         <>
-            <div className={`flex flex-col bg-white/50 w-[100vw] relative h-[100vh]  border-l-2 `}>
-                <div className='p-5 flex items-center gap-2 border-b border-primary'>
+            <div className={`flex flex-col bg-white dark:bg-black/90 dark:border-l dark:border-white/20 text-white w-[100vw] relative h-[100vh]  border-l-2 `}>
+                <div className='p-5 flex items-center gap-2 border-b dark:border-none border-primary'>
                     <img src={rsvg} alt="" />
                     <h2 className='text-xl font-semibold'>Layout</h2>
                 </div>
