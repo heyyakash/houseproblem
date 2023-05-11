@@ -50,7 +50,7 @@ const Sidebar = ({ vertical, horizontal, dict,setVertical,setHorizontal }) => {
     }
 
     return (
-        <div className='h-full w-[400px] flex bg-white dark:bg-black/90 dark:text-white  flex-col'>
+        <div className='h-screen w-[400px] flex bg-white dark:bg-black/90 dark:text-white  flex-col'>
             <div className='w-full font-bold  dark:border-none px-5 py-6  flex items-center justify-between'>
                 <h2 className='text-2xl '>House Selection</h2>
                 <div onClick={()=>toggleDarkMode()} className='rounded-full h-8 w-8 cursor-pointer trans hover:bg-white hover:text-black border grid place-items-center text-xl'>
